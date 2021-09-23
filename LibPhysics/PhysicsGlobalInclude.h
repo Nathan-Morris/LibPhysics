@@ -3,11 +3,12 @@
 
 #pragma once
 
-#include <stdexcept>
+#define PHYSICS_NAMESPACE_MAKE_NAME(SUB_SPACE)	physics_##SUB_SPACE
 
-#include "Formatter.h"
-#include "PhysicsConstants.h"
-#include "Units.h"
+#define PHYSICS_NAMESPACE_BEGIN(SUB_SPACE)		namespace PHYSICS_NAMESPACE_MAKE_NAME(SUB_SPACE) {
+#define PHYSICS_NAMESPACE_END					};
+
+#include <stdexcept>
 
 static inline bool __PHYSICS_INIT__() {
 

@@ -28,10 +28,10 @@
     <ClCompile Include="PhysicsConstants.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="DeprecatedUnits.cpp">
+    <ClCompile Include="Units.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Units.cpp">
+    <ClCompile Include="UnitsRatio.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -48,10 +48,13 @@
     <ClInclude Include="PhysicsConstants.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="DeprecatedUnits.h">
+    <ClInclude Include="Units.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Units.h">
+    <ClInclude Include="LibPhysics.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UnitsRatio.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

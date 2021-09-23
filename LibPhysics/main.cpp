@@ -5,12 +5,8 @@
 #include "Units.h"
 
 using namespace std;
+using namespace physics_units;
 
 int main() {
-	Seconds s(1);
-	Minutes m(1);
 
-	m += s;
-
-	cout << m << endl;
 }

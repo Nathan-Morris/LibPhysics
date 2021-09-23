@@ -1,6 +1,8 @@
 #ifndef _PHYSICS_CONSTANTS_
 #define _PHYSICS_CONSTANTS_
 
+#include "PhysicsGlobalInclude.h"
+
 #ifdef _PHYSICS_DOUBLE_PRECISION
 	typedef double FloatType;
 	typedef unsigned long long IntegralType;
@@ -11,9 +13,11 @@
 
 #pragma once
 
-namespace constants {
-	extern const FloatType e;
-	extern const FloatType pi;
-};
+PHYSICS_NAMESPACE_BEGIN(constants)
+
+extern const FloatType e;
+extern const FloatType pi;
+
+PHYSICS_NAMESPACE_END
 
 #endif

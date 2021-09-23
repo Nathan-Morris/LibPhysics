@@ -143,15 +143,16 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PhysicsConstants.cpp" />
     <ClCompile Include="PhysicsGlobalInclude.cpp" />
-    <ClCompile Include="DeprecatedUnits.cpp" />
+    <ClCompile Include="UnitsRatio.cpp" />
     <ClCompile Include="Vector.cpp" />
     <ClCompile Include="Units.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Formatter.h" />
+    <ClInclude Include="LibPhysics.h" />
     <ClInclude Include="PhysicsConstants.h" />
     <ClInclude Include="PhysicsGlobalInclude.h" />
-    <ClInclude Include="DeprecatedUnits.h" />
+    <ClInclude Include="UnitsRatio.h" />
     <ClInclude Include="Vector.h" />
     <ClInclude Include="Units.h" />
   </ItemGroup>
