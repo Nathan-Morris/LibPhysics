@@ -25,10 +25,9 @@ enum class UnitType : unsigned char {
 	CURRENT = 0x3,
 	TEMPERATURE = 0x4,
 	SUBSTANCE_QUANTITY = 0x5,
-	LUMINOSITY = 0x6
+	LUMINOSITY = 0x6,
 };
 typedef UnitType* pUnitType;
-
 typedef const UnitType cUnitType, * pcUnitType;
 
 static const char* unitTypeName(const UnitType unitType) {
