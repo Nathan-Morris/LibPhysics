@@ -22,7 +22,6 @@
 
 #include <stdexcept>
 #include <ostream>
-
 #include <cmath>
 
 static inline bool __PHYSICS_INIT__() {

@@ -3,7 +3,6 @@
 
 #include "PhysicsGlobalInclude.h"
 
-
 PHYSICS_NAMESPACE_BEGIN(collections)
 
 template<const unsigned int length>
@@ -99,6 +98,8 @@ public:
 	Vector<length>& operator*=(const Vector<length>& modder) { return this->dotProduct(modder); }
 	Vector<length>& operator*=(FloatType modder) { return this->mult(modder); }
 	Vector<length>& operator/=(FloatType modder) { return this->div(modder); }
+	FloatType& operator[](unsigned int offset) {return this->vect[offset];	}
+	const FloatType& operator[](unsigned int offset) const { return this->vect[offset]; }
 };
 
 template<const unsigned int vectorLength>
