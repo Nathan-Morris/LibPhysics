@@ -2,15 +2,19 @@
 
 #include "Units.h"
 #include "Vector.h"
+#include "Matrix.h"
 
 using namespace std;
 using namespace physics_units;
 using namespace physics_collections;
 
 int main() {
-	Vector<3> v1 = { 1, 2, 3 };
-	Vector<3> v2 = { 5, 6, 7 };
+	Matrix<3, 2> m = {
+		{ 3, 3 },
+		{ 2, 2 },
+		{ 1, 1 }
+	};
 
-	cout << (v1 + v2).normalize().magnitude() << endl;
 
+	cout << m.toREF() << endl;
 }

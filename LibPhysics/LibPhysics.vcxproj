@@ -142,6 +142,7 @@
     <ClCompile Include="Angles.cpp" />
     <ClCompile Include="Formatter.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Matrix.cpp" />
     <ClCompile Include="PhysicsConstants.cpp" />
     <ClCompile Include="PhysicsGlobalInclude.cpp" />
     <ClCompile Include="UnitsRatio.cpp" />
@@ -152,6 +153,7 @@
     <ClInclude Include="Angles.h" />
     <ClInclude Include="Formatter.h" />
     <ClInclude Include="LibPhysics.h" />
+    <ClInclude Include="Matrix.h" />
     <ClInclude Include="PhysicsConstants.h" />
     <ClInclude Include="PhysicsGlobalInclude.h" />
     <ClInclude Include="UnitsRatio.h" />
