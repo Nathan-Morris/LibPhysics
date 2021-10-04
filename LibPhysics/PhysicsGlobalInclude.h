@@ -3,13 +3,6 @@
 
 #pragma once
 
-#ifdef _PHYSICS_DOUBLE_PRECISION
-	typedef double FloatType;
-	typedef unsigned long long IntegralType;
-#else
-	typedef float FloatType;
-	typedef unsigned long IntegralType;
-#endif
 
 #define PHYSICS_NAMESPACE_MAKE_NAME(SUB_SPACE)	physics_##SUB_SPACE
 
