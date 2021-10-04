@@ -1,3 +1,5 @@
+#define _PHYSICS_DOUBLE_PRECISION
+
 #include <iostream>
 
 #include "Units.h"
@@ -11,10 +13,9 @@ using namespace physics_collections;
 //http://www.math.odu.edu/~bogacki/cgi-bin/lat.cgi
 
 int main() {
-	Matrix<3, 2> m = {
-		{ 3, 3 },
-		{ 2, 2 },
-		{ 1, 1 }
+	Matrix<2, 7> m = {
+		{ -10, .6, 6, 100, 5, .44, -9 },
+		{ 7, 5, 6, 12, .112, 30, 0 },
 	};
 
 

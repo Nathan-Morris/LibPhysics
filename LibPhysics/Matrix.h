@@ -130,45 +130,55 @@ public:
 	}
 
 
+	/*
+	To Refactor
+	Perhaps...
+	*/
 	Matrix<rows, columns>& toREF() {
-		unsigned int pivotRow, pivotColumn = 0;
+		unsigned int pivotRow = 0, pivotColumn = 0, iPivotRow;
+		Vector<columns> pivotRowVect;
 
-		for (; pivotColumn != columns; pivotColumn++) {
+		for (pivotColumn = 0; pivotColumn != columns; pivotColumn++) {
 			for (pivotRow = 0; pivotRow != rows; pivotRow++) {
 				if (this->at(pivotRow, pivotColumn) != (FloatType)0) {
+					
 					if (pivotRow != 0) {
 						this->rowSwap(pivotRow, 0);
 						pivotRow = 0;
 					}
+
 					goto pivotInitOut;
 				}
 			}
 		}
 		return *this;
-
 	pivotInitOut:
 
-
-		for (; pivotColumn != columns; pivotColumn++) {
-			if (this->at(pivotRow, pivotColumn) != (FloatType)1) {
+		for (pivotColumn = 0; pivotColumn != columns; pivotColumn++) {
+			if (this->at(pivotRow, pivotColumn) != (FloatType)1 && this->at(pivotRow, pivotColumn) != (FloatType)0) {
 				this->rowAt(pivotRow) /= this->at(pivotRow, pivotColumn);
 			}
 
-			Vector<columns> pivotRowVect = this->getRow(pivotRow);
-
-			for (unsigned int iRow = pivotRow + 1; iRow != rows; iRow++) {
-				if (this->at(iRow, pivotColumn) < (FloatType)0) {
-					this->rowAt(iRow) += pivotRowVect * abs(this->at(iRow, pivotColumn));
-				}
-				else if (this->at(iRow, pivotColumn) > (FloatType)0) {
-					this->rowAt(iRow) -= pivotRowVect * this->at(iRow, pivotColumn);
-				}
-			}
+			pivotRowVect = this->rowAt(pivotRow);
 
 			if (++pivotRow == rows) {
 				break;
 			}
-		} 
+
+			for (iPivotRow = pivotRow; iPivotRow != rows; iPivotRow++) {
+				if (this->at(iPivotRow, pivotColumn) != (FloatType)0) {
+					this->rowAt(iPivotRow) -= pivotRowVect * this->at(iPivotRow, pivotColumn);
+				}
+			}
+		}
+
+		return *this;
+	}
+
+	Matrix<rows, columns>& toRREF() {
+		this->toREF();
+
+
 
 		return *this;
 	}
