@@ -28,7 +28,6 @@ enum class UnitType : unsigned char {
 	LUMINOSITY = 0x6
 };
 typedef UnitType* pUnitType;
-
 typedef const UnitType cUnitType, * pcUnitType;
 
 static const char* unitTypeName(const UnitType unitType) {
@@ -183,6 +182,18 @@ public: // Arithmetic Friend Operations
 	//template<const UnitType friendUnitType, const FloatType* friendToBaseRatio, const UnitType modderUnitType, const FloatType* modderToBaseRatio>
 	//friend Unit<friendUnitType, friendToBaseRatio> operator*(const Unit<friendUnitType, friendToBaseRatio>& friendUnit, const Unit<modderUnitType, modderToBaseRatio>& modderUnit) = delete;
 };
+
+template<const UnitType friendUnitType, const FloatType* friendToBaseRatio, const UnitType modderUnitType, const FloatType* modderToBaseRatio>
+Unit<friendUnitType, friendToBaseRatio> operator+(const Unit<friendUnitType, friendToBaseRatio>& friendUnit, const Unit<modderUnitType, modderToBaseRatio>& modderUnit) = delete;
+
+template<const UnitType friendUnitType, const FloatType* friendToBaseRatio, const UnitType modderUnitType, const FloatType* modderToBaseRatio>
+Unit<friendUnitType, friendToBaseRatio> operator-(const Unit<friendUnitType, friendToBaseRatio>& friendUnit, const Unit<modderUnitType, modderToBaseRatio>& modderUnit) = delete;
+
+template<const UnitType friendUnitType, const FloatType* friendToBaseRatio, const UnitType modderUnitType, const FloatType* modderToBaseRatio>
+Unit<friendUnitType, friendToBaseRatio> operator/(const Unit<friendUnitType, friendToBaseRatio>& friendUnit, const Unit<modderUnitType, modderToBaseRatio>& modderUnit) = delete;
+
+template<const UnitType friendUnitType, const FloatType* friendToBaseRatio, const UnitType modderUnitType, const FloatType* modderToBaseRatio>
+Unit<friendUnitType, friendToBaseRatio> operator*(const Unit<friendUnitType, friendToBaseRatio>& friendUnit, const Unit<modderUnitType, modderToBaseRatio>& modderUnit) = delete;
 
 template<const UnitType friendUnitType, const FloatType* friendToBaseRatio>
 Unit<friendUnitType, friendToBaseRatio> operator+(

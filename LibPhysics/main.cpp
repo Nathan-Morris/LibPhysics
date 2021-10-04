@@ -1,5 +1,3 @@
-//#include "PhysicsGlobalInclude.h"
-
 #include <iostream>
 
 #include "Units.h"
@@ -15,4 +13,5 @@ int main() {
 
 	cout << (v1 + v2).normalize().magnitude() << endl;
 
+	cout << m << endl;
 }
