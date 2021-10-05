@@ -3,6 +3,7 @@
 
 #include "PhysicsGlobalInclude.h"
 
+
 PHYSICS_NAMESPACE_BEGIN(collections)
 
 template<const unsigned int length>
@@ -33,21 +34,21 @@ public:
 		return *this;
 	}
 
-	Vector<length>& subtract(const Vector<length>& modder) {
+	Vector<length>& sub(const Vector<length>& modder) {
 		for (unsigned int i = 0; i != length; i++) {
 			this->vect[i] -= modder.vect[i];
 		}
 		return *this;
 	}
 
-	Vector<length>& multiply(const FloatType modder) {
+	Vector<length>& mult(const FloatType modder) {
 		for (unsigned int i = 0; i != length; i++) {
 			this->vect[i] *= modder;
 		}
 		return *this;
 	}
 
-	Vector<length>& divide(const FloatType modder) {
+	Vector<length>& div(const FloatType modder) {
 		for (unsigned int i = 0; i != length; i++) {
 			this->vect[i] /= modder;
 		}
@@ -84,14 +85,6 @@ public:
 		return dotSum;
 	}
 
-	FloatType* data() {
-		return this->vect;
-	}
-
-	const FloatType* data() const {
-		return this->vect;
-	}
-
 	Vector<length>& normalize() {
 		FloatType mag = this->magnitude();
 		for (unsigned int i = 0; i != length; i++) {
@@ -101,13 +94,11 @@ public:
 	}
 
 public:
-	Vector<length>& operator+=(const Vector<length>& modder) { return this->add(modder);}
-	Vector<length>& operator-=(const Vector<length>& modder) { return this->subtract(modder); }
+	Vector<length>& operator+=(const Vector<length>& modder) { return this->add(modder); }
+	Vector<length>& operator-=(const Vector<length>& modder) { return this->sub(modder); }
 	Vector<length>& operator*=(const Vector<length>& modder) { return this->dotProduct(modder); }
-	Vector<length>& operator*=(FloatType modder) { return this->multiply(modder); }
-	Vector<length>& operator/=(FloatType modder) { return this->divide(modder); }
-	FloatType& operator[](unsigned int offset) {return this->vect[offset];	}
-	const FloatType& operator[](unsigned int offset) const { return this->vect[offset]; }
+	Vector<length>& operator*=(FloatType modder) { return this->mult(modder); }
+	Vector<length>& operator/=(FloatType modder) { return this->div(modder); }
 };
 
 template<const unsigned int vectorLength>
@@ -117,7 +108,7 @@ Vector<vectorLength> operator+(const Vector<vectorLength>& lVect, const Vector<v
 
 template<const unsigned int vectorLength>
 Vector<vectorLength> operator-(const Vector<vectorLength>& lVect, const Vector<vectorLength>& rVect) {
-	return Vector<vectorLength>(lVect).subtract(rVect);
+	return Vector<vectorLength>(lVect).sub(rVect);
 }
 
 template<const unsigned int vectorLength>
@@ -127,12 +118,12 @@ FloatType operator*(const Vector<vectorLength>& lVect, const Vector<vectorLength
 
 template<const unsigned int vectorLength>
 Vector<vectorLength> operator*(const Vector<vectorLength>& lVect, FloatType modder) {
-	return Vector<vectorLength>(lVect).multiply(modder);
+	return Vector<vectorLength>(lVect).mult(modder);
 }
 
 template<const unsigned int vectorLength>
 Vector<vectorLength> operator/(const Vector<vectorLength>& lVect, FloatType modder) {
-	return Vector<vectorLength>(lVect).divide(modder);
+	return Vector<vectorLength>(lVect).div(modder);
 }
 
 

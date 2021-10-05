@@ -3,10 +3,14 @@
 
 #pragma once
 
+
 #define PHYSICS_NAMESPACE_MAKE_NAME(SUB_SPACE)	physics_##SUB_SPACE
 
 #define PHYSICS_NAMESPACE_BEGIN(SUB_SPACE)		namespace PHYSICS_NAMESPACE_MAKE_NAME(SUB_SPACE) {
 #define PHYSICS_NAMESPACE_END					};
+
+#define PHYSICS_DEFAULT_NAMESPACE_BEGIN			namespace physics {
+#define PHYSICS_DEFAULT_NAMESPACE_END			PHYSICS_NAMESPACE_END
 
 #ifdef _PHYSICS_DOUBLE_PRECISION
 	typedef double FloatType;
@@ -16,8 +20,9 @@
 	typedef unsigned long IntegralType;
 #endif
 
-
 #include <stdexcept>
+#include <ostream>
+#include <cmath>
 
 static inline bool __PHYSICS_INIT__() {
 

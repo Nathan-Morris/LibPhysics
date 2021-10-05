@@ -7,18 +7,6 @@
 
 PHYSICS_NAMESPACE_BEGIN(units)
 
-template<
-	const UnitType topUnitType, const UnitType bottomUnitType,
-	const FloatType* topToBaseRatio, const FloatType* bottomToBaseRatio
->
-class UnitRatio {
-private:
-	Unit<topUnitType, topToBaseRatio> topUnit;
-	Unit<bottomUnitType, bottomToBaseRatio> bottomUnit;
-
-public:
-
-};
 
 PHYSICS_NAMESPACE_END
 

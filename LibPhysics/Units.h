@@ -28,7 +28,6 @@ enum class UnitType : unsigned char {
 	ANGLE = 0x7
 };
 typedef UnitType* pUnitType;
-
 typedef const UnitType cUnitType, * pcUnitType;
 
 static const char* unitTypeName(const UnitType unitType) {
@@ -175,16 +174,28 @@ public: // Arithmetic Friend Operations
 
 	//template<const UnitType friendUnitType, const FloatType* friendToBaseRatio, const UnitType modderUnitType, const FloatType* modderToBaseRatio>
 	//friend Unit<friendUnitType, friendToBaseRatio> operator+(const Unit<friendUnitType, friendToBaseRatio>& friendUnit, const Unit<modderUnitType, modderToBaseRatio>& modderUnit) = delete;
-
+	//
 	//template<const UnitType friendUnitType, const FloatType* friendToBaseRatio, const UnitType modderUnitType, const FloatType* modderToBaseRatio>
 	//friend Unit<friendUnitType, friendToBaseRatio> operator-(const Unit<friendUnitType, friendToBaseRatio>& friendUnit, const Unit<modderUnitType, modderToBaseRatio>& modderUnit) = delete;
-
+	//
 	//template<const UnitType friendUnitType, const FloatType* friendToBaseRatio, const UnitType modderUnitType, const FloatType* modderToBaseRatio>
 	//friend Unit<friendUnitType, friendToBaseRatio> operator/(const Unit<friendUnitType, friendToBaseRatio>& friendUnit, const Unit<modderUnitType, modderToBaseRatio>& modderUnit) = delete;
-
+	//
 	//template<const UnitType friendUnitType, const FloatType* friendToBaseRatio, const UnitType modderUnitType, const FloatType* modderToBaseRatio>
 	//friend Unit<friendUnitType, friendToBaseRatio> operator*(const Unit<friendUnitType, friendToBaseRatio>& friendUnit, const Unit<modderUnitType, modderToBaseRatio>& modderUnit) = delete;
 };
+
+template<const UnitType friendUnitType, const FloatType* friendToBaseRatio, const UnitType modderUnitType, const FloatType* modderToBaseRatio>
+Unit<friendUnitType, friendToBaseRatio> operator+(const Unit<friendUnitType, friendToBaseRatio>& friendUnit, const Unit<modderUnitType, modderToBaseRatio>& modderUnit) = delete;
+
+template<const UnitType friendUnitType, const FloatType* friendToBaseRatio, const UnitType modderUnitType, const FloatType* modderToBaseRatio>
+Unit<friendUnitType, friendToBaseRatio> operator-(const Unit<friendUnitType, friendToBaseRatio>& friendUnit, const Unit<modderUnitType, modderToBaseRatio>& modderUnit) = delete;
+
+template<const UnitType friendUnitType, const FloatType* friendToBaseRatio, const UnitType modderUnitType, const FloatType* modderToBaseRatio>
+Unit<friendUnitType, friendToBaseRatio> operator/(const Unit<friendUnitType, friendToBaseRatio>& friendUnit, const Unit<modderUnitType, modderToBaseRatio>& modderUnit) = delete;
+
+template<const UnitType friendUnitType, const FloatType* friendToBaseRatio, const UnitType modderUnitType, const FloatType* modderToBaseRatio>
+Unit<friendUnitType, friendToBaseRatio> operator*(const Unit<friendUnitType, friendToBaseRatio>& friendUnit, const Unit<modderUnitType, modderToBaseRatio>& modderUnit) = delete;
 
 template<const UnitType friendUnitType, const FloatType* friendToBaseRatio>
 Unit<friendUnitType, friendToBaseRatio> operator+(
@@ -314,6 +325,8 @@ public:
 //
 
 // UnitType::TIME
+using Microseconds = Unit<UnitType::TIME, &UnitConversionRatios::MICROSECONDS_TO_BASE>;
+using Milliseconds = Unit<UnitType::TIME, &UnitConversionRatios::MILLISECONDS_TO_BASE>;
 using Seconds = Unit<UnitType::TIME, &UnitConversionRatios::SECONDS_TO_BASE>;
 using Minutes = Unit<UnitType::TIME, &UnitConversionRatios::MINUTES_TO_BASE>;
 using Hours = Unit<UnitType::TIME, &UnitConversionRatios::HOURS_TO_BASE>;

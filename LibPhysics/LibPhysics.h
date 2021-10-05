@@ -9,9 +9,9 @@
 // unit types
 #include "Units.h"
 
-#ifdef _LIB_PHYSICS_NO_NAMESPACES
+#ifdef _LIB_PHYSICS_USING_NAMESPACES
 	using PHYSICS_NAMESPACE_MAKE_NAME(units);
-
+	using PHYSICS_NAMESPACE_MAKE_NAME(collections);
 #endif
 
 #endif
