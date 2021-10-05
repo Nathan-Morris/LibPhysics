@@ -47,4 +47,7 @@ const FloatType UnitConversionRatios::MOLES_TO_BASE = (FloatType)1.0;	// base un
 
 const FloatType UnitConversionRatios::CANDELAS_TO_BASE = (FloatType)1.0;	// base unit
 
+const FloatType UnitConversionRatios::RADIANS_TO_BASE = (FloatType)1.0;	// base unit
+const FloatType UnitConversionRatios::DEGREES_TO_BASE = (FloatType)(physics_constants::pi / 180.0);
+
 PHYSICS_NAMESPACE_END

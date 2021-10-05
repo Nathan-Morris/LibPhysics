@@ -13,7 +13,6 @@
 
 PHYSICS_NAMESPACE_BEGIN(units)
 
-
 //
 // UnitTypes
 //
@@ -25,7 +24,8 @@ enum class UnitType : unsigned char {
 	CURRENT = 0x3,
 	TEMPERATURE = 0x4,
 	SUBSTANCE_QUANTITY = 0x5,
-	LUMINOSITY = 0x6
+	LUMINOSITY = 0x6,
+	ANGLE = 0x7
 };
 typedef UnitType* pUnitType;
 
@@ -41,6 +41,8 @@ static const char* unitTypeName(const UnitType unitType) {
 	case UnitType::TEMPERATURE:			return "Temperature";
 	case UnitType::SUBSTANCE_QUANTITY:	return "Substance Quantity";
 	case UnitType::LUMINOSITY:			return "Luminosity";
+	case UnitType::ANGLE:				return "Angle";
+
 	default:
 		return "None";
 	}
@@ -171,17 +173,17 @@ public: // Arithmetic Friend Operations
 
 	//
 
-	template<const UnitType friendUnitType, const FloatType* friendToBaseRatio, const UnitType modderUnitType, const FloatType* modderToBaseRatio>
-	friend Unit<friendUnitType, friendToBaseRatio> operator+(const Unit<friendUnitType, friendToBaseRatio>& friendUnit, const Unit<modderUnitType, modderToBaseRatio>& modderUnit) = delete;
+	//template<const UnitType friendUnitType, const FloatType* friendToBaseRatio, const UnitType modderUnitType, const FloatType* modderToBaseRatio>
+	//friend Unit<friendUnitType, friendToBaseRatio> operator+(const Unit<friendUnitType, friendToBaseRatio>& friendUnit, const Unit<modderUnitType, modderToBaseRatio>& modderUnit) = delete;
 
-	template<const UnitType friendUnitType, const FloatType* friendToBaseRatio, const UnitType modderUnitType, const FloatType* modderToBaseRatio>
-	friend Unit<friendUnitType, friendToBaseRatio> operator-(const Unit<friendUnitType, friendToBaseRatio>& friendUnit, const Unit<modderUnitType, modderToBaseRatio>& modderUnit) = delete;
+	//template<const UnitType friendUnitType, const FloatType* friendToBaseRatio, const UnitType modderUnitType, const FloatType* modderToBaseRatio>
+	//friend Unit<friendUnitType, friendToBaseRatio> operator-(const Unit<friendUnitType, friendToBaseRatio>& friendUnit, const Unit<modderUnitType, modderToBaseRatio>& modderUnit) = delete;
 
-	template<const UnitType friendUnitType, const FloatType* friendToBaseRatio, const UnitType modderUnitType, const FloatType* modderToBaseRatio>
-	friend Unit<friendUnitType, friendToBaseRatio> operator/(const Unit<friendUnitType, friendToBaseRatio>& friendUnit, const Unit<modderUnitType, modderToBaseRatio>& modderUnit) = delete;
+	//template<const UnitType friendUnitType, const FloatType* friendToBaseRatio, const UnitType modderUnitType, const FloatType* modderToBaseRatio>
+	//friend Unit<friendUnitType, friendToBaseRatio> operator/(const Unit<friendUnitType, friendToBaseRatio>& friendUnit, const Unit<modderUnitType, modderToBaseRatio>& modderUnit) = delete;
 
-	template<const UnitType friendUnitType, const FloatType* friendToBaseRatio, const UnitType modderUnitType, const FloatType* modderToBaseRatio>
-	friend Unit<friendUnitType, friendToBaseRatio> operator*(const Unit<friendUnitType, friendToBaseRatio>& friendUnit, const Unit<modderUnitType, modderToBaseRatio>& modderUnit) = delete;
+	//template<const UnitType friendUnitType, const FloatType* friendToBaseRatio, const UnitType modderUnitType, const FloatType* modderToBaseRatio>
+	//friend Unit<friendUnitType, friendToBaseRatio> operator*(const Unit<friendUnitType, friendToBaseRatio>& friendUnit, const Unit<modderUnitType, modderToBaseRatio>& modderUnit) = delete;
 };
 
 template<const UnitType friendUnitType, const FloatType* friendToBaseRatio>
@@ -302,6 +304,9 @@ public:
 	static const FloatType MOLES_TO_BASE;	// base
 
 	static const FloatType CANDELAS_TO_BASE;	// base
+
+	static const FloatType RADIANS_TO_BASE;	// base
+	static const FloatType DEGREES_TO_BASE; 
 };
 
 //
@@ -353,6 +358,9 @@ using Moles = Unit<UnitType::SUBSTANCE_QUANTITY, &UnitConversionRatios::MOLES_TO
 // UnitType::LUMINOSITY
 using Candelas = Unit<UnitType::LUMINOSITY, &UnitConversionRatios::CANDELAS_TO_BASE>;
 
+// UnitType::ANGLE
+using Radians = Unit<UnitType::ANGLE, &UnitConversionRatios::RADIANS_TO_BASE>;
+using Degrees = Unit<UnitType::ANGLE, &UnitConversionRatios::DEGREES_TO_BASE>;
 
 PHYSICS_NAMESPACE_END
 

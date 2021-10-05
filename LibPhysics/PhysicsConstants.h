@@ -3,14 +3,6 @@
 
 #include "PhysicsGlobalInclude.h"
 
-#ifdef _PHYSICS_DOUBLE_PRECISION
-	typedef double FloatType;
-	typedef unsigned long long IntegralType;
-#else
-	typedef float FloatType;
-	typedef unsigned long IntegralType;
-#endif
-
 #pragma once
 
 PHYSICS_NAMESPACE_BEGIN(constants)

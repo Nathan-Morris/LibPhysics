@@ -1,5 +1,3 @@
-//#include "PhysicsGlobalInclude.h"
-
 #include <iostream>
 
 #include "Units.h"

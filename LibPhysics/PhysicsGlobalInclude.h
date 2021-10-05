@@ -8,6 +8,15 @@
 #define PHYSICS_NAMESPACE_BEGIN(SUB_SPACE)		namespace PHYSICS_NAMESPACE_MAKE_NAME(SUB_SPACE) {
 #define PHYSICS_NAMESPACE_END					};
 
+#ifdef _PHYSICS_DOUBLE_PRECISION
+	typedef double FloatType;
+	typedef unsigned long long IntegralType;
+#else
+	typedef float FloatType;
+	typedef unsigned long IntegralType;
+#endif
+
+
 #include <stdexcept>
 
 static inline bool __PHYSICS_INIT__() {
