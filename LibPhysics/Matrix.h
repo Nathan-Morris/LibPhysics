@@ -175,46 +175,6 @@ public:
 		return *this;
 	}
 
-	Matrix<rows, columns>& _toREF() {
-		unsigned int lead = 0;
-		
-		for (unsigned int r = 0, i; r < rows; r++) {
-			if (lead >= columns) {
-				break;
-			}
-
-			i = r;
-
-			while (this->at(i, lead) == (FloatType)0) {
-				i++;
-				
-				if (i == rows) {
-					i = r;
-					lead++;
-					if (lead == columns) {
-						return *this;
-					}
-				}
-			}
-
-			if (i != r) {
-				this->rowSwap(i, r);
-			}
-
-			this->rowAt(r) /= this->at(r, lead);
-
-			for (i = 0; i < rows; i++) {
-				if (i != r) {
-					this->rowAt(i) -= this->getRow(r) * this->at(i, lead);
-				}
-			}
-
-			lead++;
-		}
-
-		return *this;
-	}
-
 	// using Gause - Jordan method
 	Matrix<rows, columns>& inverse() {
 		if (rows != columns) {
