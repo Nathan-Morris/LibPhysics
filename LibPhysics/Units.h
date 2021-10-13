@@ -459,8 +459,8 @@ using Moles = Unit<UnitType::SUBSTANCE_QUANTITY, &physics_unit_converions::MOLES
 using Candelas = Unit<UnitType::LUMINOSITY, &physics_unit_converions::CANDELAS_TO_BASE>;
 
 // UnitType::ANGLE
-using Radians = Unit<UnitType::ANGLE, &physics_unit_converions::RADIANS_TO_BASE>;
-using Degrees = Unit<UnitType::ANGLE, &physics_unit_converions::DEGREES_TO_BASE>;
+//using Radians = Unit<UnitType::ANGLE, &physics_unit_converions::RADIANS_TO_BASE>;
+//using Degrees = Unit<UnitType::ANGLE, &physics_unit_converions::DEGREES_TO_BASE>;
 
 PHYSICS_NAMESPACE_END
 
