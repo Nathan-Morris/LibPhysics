@@ -106,6 +106,7 @@ public:
 	Vector<length>& operator*=(const Vector<length>& modder) { return this->dotProduct(modder); }
 	Vector<length>& operator*=(FloatType modder) { return this->multiply(modder); }
 	Vector<length>& operator/=(FloatType modder) { return this->divide(modder); }
+
 	FloatType& operator[](unsigned int offset) {return this->vect[offset];	}
 	const FloatType& operator[](unsigned int offset) const { return this->vect[offset]; }
 };
