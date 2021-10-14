@@ -144,7 +144,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Angles.cpp" />
-    <ClCompile Include="AppModule.cpp" />
+    <ClCompile Include="AppModules.cpp" />
     <ClCompile Include="Formatter.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Matrix.cpp" />
@@ -156,7 +156,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Angles.h" />
-    <ClInclude Include="AppModule.h" />
+    <ClInclude Include="AppModules.h" />
     <ClInclude Include="Formatter.h" />
     <ClInclude Include="LibPhysics.h" />
     <ClInclude Include="Matrix.h" />

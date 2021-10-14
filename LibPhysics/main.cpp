@@ -1,5 +1,3 @@
-#define _LIB_PHYSICS_DOUBLE_PRECISION
-
 #include <iostream>	
 
 #include "AppModule.h"
@@ -7,9 +5,6 @@
 #include <conio.h>
 
 using namespace std;
-using namespace physics_units;
-using namespace physics_collections;
-using namespace physics_constants;
 
 static void projectileMotion(
 	FloatType initialHeight,

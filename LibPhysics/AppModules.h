@@ -8,4 +8,12 @@
 
 #include "LibPhysics.h"
 
+
+typedef void(*PhysicsApp)(void);
+
+
+static void projectileMotionApp() {
+	
+}
+
 #endif
