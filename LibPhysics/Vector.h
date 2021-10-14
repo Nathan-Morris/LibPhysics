@@ -5,6 +5,12 @@
 
 PHYSICS_NAMESPACE_BEGIN(collections)
 
+enum class Dim : unsigned char {
+	X = 0,
+	Y = 1,
+	Z = 2
+};
+
 template<const unsigned int length>
 class Vector {
 private:
@@ -106,7 +112,10 @@ public:
 	Vector<length>& operator*=(const Vector<length>& modder) { return this->dotProduct(modder); }
 	Vector<length>& operator*=(FloatType modder) { return this->multiply(modder); }
 	Vector<length>& operator/=(FloatType modder) { return this->divide(modder); }
-
+	
+	FloatType& operator[](Dim dimension) { return this->vect[(unsigned char)dimension]; }
+	const FloatType& operator[](Dim dimension) const { return this->vect[(unsigned char)dimension]; }
+	
 	FloatType& operator[](unsigned int offset) {return this->vect[offset];	}
 	const FloatType& operator[](unsigned int offset) const { return this->vect[offset]; }
 };

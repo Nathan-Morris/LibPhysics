@@ -18,12 +18,14 @@ static void projectileMotion(
 	FloatType initialVelocity,
 	FloatType theta
 ) {
-	FloatType a = -9.81;
-	FloatType time;
+	FloatType g = 9.81;
+	FloatType time = 0;
 
 	theta *= pi / 180.0; // to radians
 
 	Vector<2> velocity = { initialVelocity * cos(theta), initialVelocity * sin(theta) };
+
+	cout << "Init = " << velocity << " -> ||" << velocity.magnitude() << "||\n\n";
 
 	while (1) {
 		if (_kbhit()) {
@@ -31,11 +33,15 @@ static void projectileMotion(
 				break;
 			}
 
-			velocity[1]
+			velocity[Dim::Y] = (initialVelocity * sin(theta)) - ( g * time );
+
+			time += 1.0;
+
+			cout << "( " << (velocity[Dim::X] * time) << ", " << ((initialVelocity * sin(theta) * time) - (.5 * g * (time * time))) << ") -> " << velocity << " -> ||" << velocity.magnitude() << "||" << endl;
 		}
 	}
 }
 
 int main() {
-	
+	projectileMotion(100, 30);
 }
