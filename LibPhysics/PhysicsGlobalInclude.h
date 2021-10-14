@@ -15,9 +15,11 @@
 #ifdef _LIB_PHYSICS_DOUBLE_PRECISION
 	typedef double FloatType;
 	typedef unsigned long long IntegralType;
+#	define strtoft	strtod
 #else
 	typedef float FloatType;
 	typedef unsigned long IntegralType;
+#	define strtoft	strtof
 #endif
 
 #include <stdexcept>
