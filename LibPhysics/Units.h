@@ -125,6 +125,9 @@ public:	// Construction
 		this->value = this->valueFromUnitRatio(assignUnit.getValue(), assignToBaseRatio);
 	}
 
+	template<const UnitType assignUnitType, const FloatType* assignToBaseRatio>
+	Unit(const Unit<assignUnitType, assignToBaseRatio>& assignUnit) = delete;
+
 public:	// Value Fetching
 	UnitType getUnitType() const { return unitType; }
 	FloatType getValue() const { return this->value; }
@@ -356,56 +359,6 @@ bool operator>=(const Unit<friendUnitType, friendToBaseRatio>& equUnitLeft, cons
 //
 //
 
-
-//
-// Common Unit Type Conversion Declarations
-//
-
-//class UnitConversionRatios {
-//public:
-//	static const FloatType MICROSECONDS_TO_BASE;
-//	static const FloatType MILLISECONDS_TO_BASE;
-//	static const FloatType SECONDS_TO_BASE; // base
-//	static const FloatType MINUTES_TO_BASE;
-//	static const FloatType HOURS_TO_BASE;
-//	static const FloatType DAYS_TO_BASE;
-//	static const FloatType WEEKS_TO_BASE;
-//	static const FloatType YEARS_TO_BASE;
-//
-//	static const FloatType NANOMETERS_TO_BASE;
-//	static const FloatType MICROMETERS_TO_BASE;
-//	static const FloatType MILLIMETERS_TO_BASE;
-//	static const FloatType CENTIMETERS_TO_BASE;
-//	static const FloatType DECIMETERS_TO_BASE;
-//	static const FloatType METERS_TO_BASE;	// base
-//	static const FloatType HECTOMETERS_TO_BASE;
-//	static const FloatType KILOMETERS_TO_BASE;
-//	static const FloatType NAUTICAL_MILES_TO_BASE;
-//	static const FloatType MILES_TO_BASE;
-//	static const FloatType YARDS_TO_BASE;
-//	static const FloatType FEET_TO_BASE;
-//	static const FloatType INCHES_TO_BASE;
-//
-//	static const FloatType METRIC_TONS_TO_BASE;
-//	static const FloatType KILOGRAMS_TO_BASE;	// base
-//	static const FloatType GRAMS_TO_BASE;
-//	static const FloatType MILLIGRAMS_TO_BASE;
-//	static const FloatType MICROGRAMS_TO_BASE;
-//	static const FloatType IMPERIAL_TONS_TO_BASE;
-//	static const FloatType POUNDS_TO_BASE;
-//	static const FloatType OUNCES_TO_BASE;
-//
-//	static const FloatType AMPS_TO_BASE;	// base
-//
-//	static const FloatType KELVIN_TO_BASE;	// base
-//
-//	static const FloatType MOLES_TO_BASE;	// base
-//
-//	static const FloatType CANDELAS_TO_BASE;	// base
-//
-//	static const FloatType RADIANS_TO_BASE;	// base
-//	static const FloatType DEGREES_TO_BASE;
-//};
 
 //
 // Common Unit Definitions

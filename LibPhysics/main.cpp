@@ -1,4 +1,4 @@
-#define _PHYSICS_DOUBLE_PRECISION
+#define _LIB_PHYSICS_DOUBLE_PRECISION
 
 #include <iostream>	
 
@@ -15,6 +15,7 @@ using namespace physics_collections;
 using namespace physics_constants;
 
 static void projectileMotion(
+	FloatType initialHeight,
 	FloatType initialVelocity,
 	FloatType theta
 ) {
@@ -35,13 +36,13 @@ static void projectileMotion(
 
 			velocity[Dim::Y] = (initialVelocity * sin(theta)) - ( g * time );
 
-			time += 1.0;
+			time += .25;
 
-			cout << "( " << (velocity[Dim::X] * time) << ", " << ((initialVelocity * sin(theta) * time) - (.5 * g * (time * time))) << ") -> " << velocity << " -> ||" << velocity.magnitude() << "||" << endl;
+			cout << "( " << (velocity[Dim::X] * time) << ", " << (((initialVelocity * sin(theta) * time) - (.5 * g * (time * time))) + initialHeight) << ")" << endl;//" -> " << velocity << " -> ||" << velocity.magnitude() << "||" << endl;
 		}
 	}
 }
 
 int main() {
-	projectileMotion(100, 30);
+	projectileMotion(20, 10, 30);
 }

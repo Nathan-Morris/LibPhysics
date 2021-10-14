@@ -12,7 +12,7 @@
 #define PHYSICS_DEFAULT_NAMESPACE_BEGIN			namespace physics {
 #define PHYSICS_DEFAULT_NAMESPACE_END			PHYSICS_NAMESPACE_END
 
-#ifdef _PHYSICS_DOUBLE_PRECISION
+#ifdef _LIB_PHYSICS_DOUBLE_PRECISION
 	typedef double FloatType;
 	typedef unsigned long long IntegralType;
 #else
