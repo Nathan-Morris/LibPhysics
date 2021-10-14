@@ -7,19 +7,35 @@
 #include "Matrix.h"
 #include "Angles.h"
 
+#include <conio.h>
+
 using namespace std;
 using namespace physics_units;
 using namespace physics_collections;
 using namespace physics_constants;
 
+static void projectileMotion(
+	FloatType initialVelocity,
+	FloatType theta
+) {
+	FloatType a = -9.81;
+	FloatType time;
+
+	theta *= pi / 180.0; // to radians
+
+	Vector<2> velocity = { initialVelocity * cos(theta), initialVelocity * sin(theta) };
+
+	while (1) {
+		if (_kbhit()) {
+			if (_getch() == 'q') {
+				break;
+			}
+
+			velocity[1]
+		}
+	}
+}
+
 int main() {
-	FloatType theta = 35 * pi / 180;
-
-	Vector<2> a = { 50, 0 };
-	Vector<2> b = { 40 * cos(theta), 40 * sin(theta) };
-	Vector<2> c = { 0, 30 };
-
-	Vector<2> R = a + b + c;
-
-	cout << R << " ||" << R.magnitude() << "||\n";
+	
 }

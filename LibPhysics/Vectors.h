@@ -6,6 +6,12 @@
 
 PHYSICS_NAMESPACE_BEGIN(collections)
 
+enum class Dim : unsigned char {
+	X = 0,
+	Y = 1,
+	Z = 2
+};
+
 template<const unsigned int length>
 class Vector {
 private:
