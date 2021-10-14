@@ -2,10 +2,7 @@
 
 #include <iostream>	
 
-#include "Units.h"
-#include "Vector.h"
-#include "Matrix.h"
-#include "Angles.h"
+#include "AppModule.h"
 
 #include <conio.h>
 
