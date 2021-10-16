@@ -14,17 +14,20 @@
 
 #include <iostream>
 #include <sstream>
+#include <thread>
 
 #include <conio.h>
 
 #pragma comment(lib, "glew32")
 #pragma comment(lib, "glfw3dll")
 
-typedef void(*PhysicsApp)(void);
+using namespace std;
 
-static bool graphicsInit() {
+typedef void(*PhysicsApp)(void*);
+
+static GLFWwindow* graphicsInit() {
 	if (!glfwInit()) {
-		return false;
+		return NULL;
 	}
 
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
@@ -32,11 +35,16 @@ static bool graphicsInit() {
 	glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
+	GLFWwindow* window = glfwCreateWindow(720, 480, "Hello?", NULL, NULL);
+
+	glfwMakeContextCurrent(window);
 	glewExperimental = true;
 
-	if (glewInit() != GLEW_OK) {
-		return;
+	if (glewInit()) {
+		return NULL;
 	}
+
+	return window;
 }
 
 
@@ -49,7 +57,7 @@ static GLuint graphicsProgramShaderCompilationAndLinking(const char* vertexShade
 	GLuint fragmentShaderId = glCreateShader(GL_FRAGMENT_SHADER);
 	GLint shaderCompilationResult = GL_FALSE, shaderLogLength = 0;
 
-	glShaderSource(vertexShaderId, 1, &VERTEX_SHADER_SRC, NULL);
+	glShaderSource(vertexShaderId, 1, &vertexShaderSrc, NULL);
 	glCompileShader(vertexShaderId);
 	glGetShaderiv(vertexShaderId, GL_COMPILE_STATUS, &shaderCompilationResult);
 	glGetShaderiv(vertexShaderId, GL_INFO_LOG_LENGTH, &shaderLogLength);
@@ -62,7 +70,7 @@ static GLuint graphicsProgramShaderCompilationAndLinking(const char* vertexShade
 		return 0;
 	}
 
-	glShaderSource(fragmentShaderId, 1, &FRAGMENT_SHADER_SRC, NULL);
+	glShaderSource(fragmentShaderId, 1, &fragmentShaderSrc, NULL);
 	glCompileShader(fragmentShaderId);
 	glGetShaderiv(fragmentShaderId, GL_COMPILE_STATUS, &shaderCompilationResult);
 	glGetShaderiv(fragmentShaderId, GL_INFO_LOG_LENGTH, &shaderLogLength);
@@ -120,6 +128,8 @@ static void projectileMotionApp(GLFWwindow* window) {
 			gl_Position.w = 1.0;
 		}
 	)";
+
+	
 
 	GLuint programId = graphicsProgramShaderCompilationAndLinking(vertexShaderSource, fragmentShaderSource);
 
@@ -259,8 +269,6 @@ static void projectileMotionApp(GLFWwindow* window) {
 			glDrawArrays(GL_LINES, 0, 2);
 		}
 
-		this_thread::sleep_for(chrono::milliseconds(100));
-
 		glfwSwapBuffers(window);
 		glfwPollEvents();
 
@@ -269,7 +277,10 @@ static void projectileMotionApp(GLFWwindow* window) {
 		velocity[Dim::Y] = (initialVelocityMagnitude * sin(theta)) - (gravitationalAcceleration * time);
 		time += timeStep;
 
-
+		vectorVertexPairs[1][0] = velocity[Dim::X] / scale;
+		vectorVertexPairs[2][1] = velocity[Dim::Y] / scale;
+		vectorVertexPairs[0][0] = velocity[Dim::X] / scale;
+		vectorVertexPairs[0][1] = velocity[Dim::Y] / scale;
 
 	} while (!glfwWindowShouldClose(window));
 }

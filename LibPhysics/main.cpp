@@ -197,5 +197,9 @@ static void openglMain() {
 }
 
 int main() {
-	graphicsInit();
+	GLFWwindow* window = graphicsInit();
+	if (!window) {
+		return -1;
+	}
+	projectileMotionApp(window);
 }
